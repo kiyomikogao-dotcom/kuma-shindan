@@ -1,11 +1,11 @@
 import streamlit as st
 from groq import Groq
-from PIL import Image
+from PIL import Image, ImageOps
 import io
 import base64
 
 st.set_page_config(
-    page_title="目のくま診断 | きよみの小顔ケア",
+    page_title="あなたのクマはどのタイプ？ | きよみの小顔ケア",
     page_icon="👁️",
     layout="centered"
 )
@@ -22,7 +22,11 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("# 👁️ 目のくま診断")
+col1, col2, col3 = st.columns([1, 1, 1])
+with col2:
+    st.image("kiyomi_character.jpg", width=200)
+
+st.markdown("# 👁️ あなたのクマはどのタイプ？")
 st.markdown('<p class="subtitle">写真をアップロードするだけ！AIがくまのタイプと改善アドバイスをお伝えします</p>',
             unsafe_allow_html=True)
 
@@ -40,13 +44,25 @@ uploaded = st.file_uploader("写真を選ぶ（JPG・PNG）", type=["jpg", "jpeg
 
 if uploaded:
     image = Image.open(uploaded)
+    image = ImageOps.exif_transpose(image)  # スマホ写真の向きを自動補正
+    image = image.convert("RGB")            # PNG/HEIC等の形式を統一
+
+    # 大きすぎる画像はリサイズ（API制限対策）
+    max_size = 1024
+    if max(image.size) > max_size:
+        ratio = max_size / max(image.size)
+        image = image.resize(
+            (int(image.width * ratio), int(image.height * ratio)),
+            Image.LANCZOS
+        )
+
     st.image(image, use_container_width=True)
 
     if st.button("✨ くまを診断する", type="primary", use_container_width=True):
         with st.spinner("AIが分析中です…少々お待ちください"):
             try:
                 buf = io.BytesIO()
-                image.save(buf, format="PNG")
+                image.save(buf, format="JPEG", quality=85)
                 img_base64 = base64.b64encode(buf.getvalue()).decode()
 
                 prompt = """
@@ -67,7 +83,7 @@ if uploaded:
 タイプに合った具体的なケアを箇条書き3〜4つ
 
 【きよみからのひとこと】
-温かく励ましながら、プロのアドバイスを添えてください
+温かく励ましながら、セルフケアへの前向きなアドバイスを添えてください。クリニックや医療機関への案内は不要です。
 ---
 
 ※写真が不鮮明でも、見えている範囲で最善の分析をしてください。
@@ -82,7 +98,7 @@ if uploaded:
                                 {
                                     "type": "image_url",
                                     "image_url": {
-                                        "url": f"data:image/png;base64,{img_base64}"
+                                        "url": f"data:image/jpeg;base64,{img_base64}"
                                     }
                                 },
                                 {
