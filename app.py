@@ -84,7 +84,7 @@ hero_img = (
 # ヒーローセクション
 st.markdown(f"""
 <div style="
-    background: linear-gradient(160deg, #F4EAFF 0%, #FFE8F4 100%);
+    background: #FFFFFF;
     border-radius: 24px;
     padding: 1.8rem 1rem 1.4rem;
     text-align: center;
