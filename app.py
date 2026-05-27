@@ -196,8 +196,8 @@ if uploaded:
     小顔トレーナー「<strong>たるみバスター★きよみ</strong>」の<br>
     <strong>オンライン体験会</strong>で、<br>
     あなたに合ったセルフケアをマンツーマンでお伝えします✨<br><br>
-    👇 お気軽にInstagramからDMください<br>
-    <strong>@kiyomi_kogao28</strong>
+    👇 お気軽に公式LINEから<br>
+    <strong>「体験会希望」</strong>とメッセージくださいね
 </div>
 """, unsafe_allow_html=True)
 
