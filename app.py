@@ -195,7 +195,7 @@ if uploaded:
     💜 <strong>もっと詳しくケアを学びたい方へ</strong><br><br>
     小顔トレーナー「<strong>たるみバスター★きよみ</strong>」の<br>
     <strong>オンライン体験会</strong>で、<br>
-    あなたに合ったセルフケアをマンツーマンでお伝えします✨<br><br>
+    あなたに合ったセルフケアをマンツーマンで<br>お伝えします✨<br><br>
     👇 お気軽に公式LINEから<br>
     <strong>「体験会希望」</strong>とメッセージくださいね
 </div>
