@@ -96,7 +96,7 @@ except Exception:
     st.error("システムエラーが発生しました。しばらくしてから再度お試しください。")
     st.stop()
 
-st.markdown("### 📸 写真をアップロード")
+st.markdown("#### 📸 写真をアップロード")
 st.caption("正面から撮影した、なるべく同じ角度・明るさの写真がより正確に分析できます")
 
 col1, col2 = st.columns(2)
