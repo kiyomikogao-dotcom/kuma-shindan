@@ -81,7 +81,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("# 🌸 ビフォーアフター変化診断")
+st.markdown("### 🌸 お顔の変化check！")
 st.markdown(
     '<p style="text-align:center; color:#888; margin-bottom:1.5rem; font-size:0.95rem;">'
     'セルフケア前後の写真を2枚アップロードするだけ！<br>AIがお顔の変化を詳しく分析します✨'
