@@ -225,12 +225,6 @@ if before_file and after_file:
             except Exception as e:
                 st.error(f"エラーが発生しました: {e}")
 
-elif before_file and not after_file:
-    st.info("👆 アフター（ケア後）の写真もアップロードしてください")
-elif after_file and not before_file:
-    st.info("👆 ビフォー（ケア前）の写真もアップロードしてください")
-else:
-    st.info("👆 ビフォー・アフター2枚の写真をアップロードしてください")
 
 st.markdown("---")
 st.caption("© たるみバスター★きよみ ｜ AIによる参考診断です")
