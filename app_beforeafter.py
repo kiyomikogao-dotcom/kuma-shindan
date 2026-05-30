@@ -1,6 +1,6 @@
 import streamlit as st
 from groq import Groq
-from PIL import Image
+from PIL import Image, ImageOps
 import io
 import base64
 
@@ -20,9 +20,10 @@ st.markdown("""
     div[data-testid="stButton"] > button {
         border-radius: 50px !important;
         font-weight: bold !important;
-        font-size: 1.05rem !important;
-        height: 3.2rem !important;
+        font-size: 1.1rem !important;
+        height: 3.4rem !important;
         letter-spacing: 0.05em;
+        width: 100% !important;
     }
 
     .photo-label {
@@ -30,7 +31,7 @@ st.markdown("""
         font-weight: bold;
         font-size: 1rem;
         color: #E07A9B;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.4rem;
     }
 
     .result-card {
@@ -43,15 +44,6 @@ st.markdown("""
         line-height: 2.0;
     }
 
-    .score-box {
-        background: linear-gradient(135deg, #FFE4F3 0%, #F8EDFF 100%);
-        border-radius: 16px;
-        padding: 1.2rem;
-        text-align: center;
-        margin: 1rem 0;
-        font-size: 1.1rem;
-    }
-
     .cta-card {
         background: linear-gradient(135deg, #FFE4F3 0%, #F8EDFF 100%);
         border-radius: 20px;
@@ -60,12 +52,38 @@ st.markdown("""
         margin-top: 1.5rem;
         line-height: 1.9;
     }
+
+    /* スマホ向け調整 */
+    @media (max-width: 640px) {
+        .block-container {
+            padding: 0.5rem 0.5rem 4rem !important;
+        }
+        .photo-label {
+            font-size: 0.9rem;
+        }
+        .result-card {
+            font-size: 0.9rem;
+            padding: 1rem 0.8rem;
+            line-height: 1.9;
+        }
+        div[data-testid="stButton"] > button {
+            font-size: 1rem !important;
+            height: 3rem !important;
+        }
+        /* ファイルアップローダーをタップしやすく */
+        div[data-testid="stFileUploader"] {
+            min-height: 80px;
+        }
+        div[data-testid="stFileUploader"] label {
+            font-size: 0.85rem !important;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("# 🌸 ビフォーアフター変化診断")
 st.markdown(
-    '<p style="text-align:center; color:#888; margin-bottom:1.5rem;">'
+    '<p style="text-align:center; color:#888; margin-bottom:1.5rem; font-size:0.95rem;">'
     'セルフケア前後の写真を2枚アップロードするだけ！<br>AIがお顔の変化を詳しく分析します✨'
     '</p>',
     unsafe_allow_html=True
@@ -83,18 +101,25 @@ st.caption("正面から撮影した、なるべく同じ角度・明るさの�
 
 col1, col2 = st.columns(2)
 
+def prepare_image(uploaded_file) -> Image.Image:
+    img = Image.open(uploaded_file)
+    img = ImageOps.exif_transpose(img)
+    img = img.convert("RGB")
+    img.thumbnail((1024, 1024))
+    return img
+
 with col1:
-    st.markdown('<div class="photo-label">ビフォー（ケア前）</div>', unsafe_allow_html=True)
+    st.markdown('<div class="photo-label">📷 ビフォー（ケア前）</div>', unsafe_allow_html=True)
     before_file = st.file_uploader("ビフォー写真", type=["jpg", "jpeg", "png"], key="before", label_visibility="collapsed")
     if before_file:
-        before_image = Image.open(before_file)
+        before_image = prepare_image(before_file)
         st.image(before_image, use_container_width=True)
 
 with col2:
-    st.markdown('<div class="photo-label">アフター（ケア後）</div>', unsafe_allow_html=True)
+    st.markdown('<div class="photo-label">✨ アフター（ケア後）</div>', unsafe_allow_html=True)
     after_file = st.file_uploader("アフター写真", type=["jpg", "jpeg", "png"], key="after", label_visibility="collapsed")
     if after_file:
-        after_image = Image.open(after_file)
+        after_image = prepare_image(after_file)
         st.image(after_image, use_container_width=True)
 
 if before_file and after_file:
@@ -104,7 +129,7 @@ if before_file and after_file:
             try:
                 def encode_image(image: Image.Image) -> str:
                     buf = io.BytesIO()
-                    image.save(buf, format="PNG")
+                    image.save(buf, format="JPEG", quality=85)
                     return base64.b64encode(buf.getvalue()).decode()
 
                 before_b64 = encode_image(before_image)
@@ -166,7 +191,7 @@ if before_file and after_file:
                                 },
                                 {
                                     "type": "image_url",
-                                    "image_url": {"url": f"data:image/png;base64,{before_b64}"}
+                                    "image_url": {"url": f"data:image/jpeg;base64,{before_b64}"}
                                 },
                                 {
                                     "type": "text",
@@ -174,7 +199,7 @@ if before_file and after_file:
                                 },
                                 {
                                     "type": "image_url",
-                                    "image_url": {"url": f"data:image/png;base64,{after_b64}"}
+                                    "image_url": {"url": f"data:image/jpeg;base64,{after_b64}"}
                                 },
                                 {
                                     "type": "text",
@@ -194,7 +219,6 @@ if before_file and after_file:
                     f'<div class="result-card">{result.replace(chr(10), "<br>")}</div>',
                     unsafe_allow_html=True
                 )
-
 
             except Exception as e:
                 st.error(f"エラーが発生しました: {e}")
