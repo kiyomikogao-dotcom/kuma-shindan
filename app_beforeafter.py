@@ -109,14 +109,14 @@ def prepare_image(uploaded_file) -> Image.Image:
     return img
 
 with col1:
-    st.markdown('<div class="photo-label">📷 ビフォー（ケア前）</div>', unsafe_allow_html=True)
+    st.markdown('<div class="photo-label">📷 BEFORE（ケア前）</div>', unsafe_allow_html=True)
     before_file = st.file_uploader("ビフォー写真", type=["jpg", "jpeg", "png"], key="before", label_visibility="collapsed")
     if before_file:
         before_image = prepare_image(before_file)
         st.image(before_image, use_container_width=True)
 
 with col2:
-    st.markdown('<div class="photo-label">✨ アフター（ケア後）</div>', unsafe_allow_html=True)
+    st.markdown('<div class="photo-label">✨ AFTER（ケア後）</div>', unsafe_allow_html=True)
     after_file = st.file_uploader("アフター写真", type=["jpg", "jpeg", "png"], key="after", label_visibility="collapsed")
     if after_file:
         after_image = prepare_image(after_file)
