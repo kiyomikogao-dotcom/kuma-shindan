@@ -238,7 +238,7 @@ if before_file and after_file:
 
                 st.success("分析が完了しました！")
                 st.markdown("---")
-                st.markdown("### 🔍 あなたのビフォーアフター診断結果")
+                st.markdown("### 🔍 診断結果")
                 st.markdown(
                     f'<div class="result-card">{result.replace(chr(10), "<br>")}</div>',
                     unsafe_allow_html=True
