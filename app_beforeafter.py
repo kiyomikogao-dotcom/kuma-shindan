@@ -3,6 +3,14 @@ from groq import Groq
 from PIL import Image, ImageOps
 import io
 import base64
+import os
+
+def load_illust_b64():
+    path = os.path.join(os.path.dirname(__file__), "illust_kiyomi.jpg")
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+ILLUST_B64 = load_illust_b64()
 
 st.set_page_config(
     page_title="ビフォーアフター変化診断 | きよみの小顔ケア",
@@ -219,6 +227,12 @@ if before_file and after_file:
                 st.markdown("### 🔍 あなたのビフォーアフター診断結果")
                 st.markdown(
                     f'<div class="result-card">{result.replace(chr(10), "<br>")}</div>',
+                    unsafe_allow_html=True
+                )
+                st.markdown(
+                    f'<div style="text-align:center; margin-top:1.5rem;">'
+                    f'<img src="data:image/jpeg;base64,{ILLUST_B64}" style="width:120px; border-radius:16px;">'
+                    f'</div>',
                     unsafe_allow_html=True
                 )
 
