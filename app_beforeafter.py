@@ -67,6 +67,12 @@ st.markdown("""
         line-height: 1.9;
     }
 
+    /* Streamlit ツールバー・フッターを非表示 */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    div[data-testid="stToolbar"] {visibility: hidden; display: none;}
+    div[data-testid="stDecoration"] {display: none;}
+
     /* スマホ向け調整 */
     @media (max-width: 640px) {
         .block-container {
