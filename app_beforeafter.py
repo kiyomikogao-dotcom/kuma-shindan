@@ -68,10 +68,14 @@ st.markdown("""
     }
 
     /* Streamlit ツールバー・フッターを非表示 */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    div[data-testid="stToolbar"] {visibility: hidden; display: none;}
-    div[data-testid="stDecoration"] {display: none;}
+    #MainMenu {visibility: hidden !important; display: none !important;}
+    footer {visibility: hidden !important; display: none !important;}
+    header {visibility: hidden !important; display: none !important;}
+    [data-testid="stToolbar"] {display: none !important;}
+    [data-testid="stDecoration"] {display: none !important;}
+    [data-testid="stStatusWidget"] {display: none !important;}
+    .viewerBadge_container__1QSob {display: none !important;}
+    .viewerBadge_link__qRIco {display: none !important;}
 
     /* スマホ向け調整 */
     @media (max-width: 640px) {
