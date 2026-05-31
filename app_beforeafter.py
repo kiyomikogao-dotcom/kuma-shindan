@@ -96,12 +96,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown(
-    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-bottom:0.3rem;">🌸 お顔の変化check！</h2>',
+    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-bottom:0.3rem; white-space:nowrap; font-size:clamp(1.2rem, 5vw, 1.8rem);">🌸 お顔の変化check！</h2>',
     unsafe_allow_html=True
 )
 st.markdown(
     '<p style="text-align:center; font-size:1.05rem; color:#C05A8A; font-weight:700; margin-bottom:0.5rem;">'
-    '自分では気づきにくいお顔の変化を、AIが診断してくれるよ！'
+    '自分では気づきにくいお顔の変化を、<br>AIが診断してくれるよ！'
     '</p>',
     unsafe_allow_html=True
 )
