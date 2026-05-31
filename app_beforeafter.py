@@ -20,6 +20,12 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap');
+
+    html, body, [class*="css"], .stApp {
+        font-family: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', sans-serif !important;
+    }
+
     .block-container {
         max-width: 680px;
         padding: 1rem 1rem 4rem !important;
@@ -89,10 +95,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("### 🌸 お顔の変化check！")
 st.markdown(
-    '<p style="text-align:center; color:#888; margin-bottom:1.5rem; font-size:0.95rem;">'
-    'セルフケア前後の写真を2枚アップロードするだけ！<br>AIがお顔の変化を詳しく分析します✨'
+    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-bottom:0.3rem;">🌸 お顔の変化check！</h2>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    '<p style="text-align:center; font-size:1.05rem; color:#C05A8A; font-weight:700; margin-bottom:0.5rem;">'
+    '自分では気づきにくいお顔の変化を、AIが診断してくれるよ！'
+    '</p>',
+    unsafe_allow_html=True
+)
+st.markdown(
+    '<p style="text-align:center; color:#aaa; margin-bottom:1.5rem; font-size:0.9rem;">'
+    'セルフケア前後の写真を2枚アップロードするだけ✨'
     '</p>',
     unsafe_allow_html=True
 )
