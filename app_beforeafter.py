@@ -96,7 +96,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown(
-    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-bottom:0.3rem; white-space:nowrap; font-size:clamp(1.2rem, 5vw, 1.8rem);">🌸 お顔の変化check！</h2>',
+    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-top:1.2rem; margin-bottom:0.3rem; font-size:clamp(1.2rem, 5vw, 1.8rem);">🌸 お顔の変化check！</h2>',
     unsafe_allow_html=True
 )
 st.markdown(
