@@ -96,7 +96,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown(
-    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-top:1.2rem; margin-bottom:0.3rem; font-size:clamp(1.2rem, 5vw, 1.8rem);">🌸 お顔の変化check！</h2>',
+    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-top:1.2rem; margin-bottom:0.3rem; font-size:clamp(1.5rem, 6vw, 2.2rem);">🌸 お顔の変化check！</h2>',
     unsafe_allow_html=True
 )
 st.markdown(
@@ -119,7 +119,7 @@ except Exception:
     st.error("システムエラーが発生しました。しばらくしてから再度お試しください。")
     st.stop()
 
-st.markdown("##### 📸 写真をアップロード")
+st.markdown('<p style="font-size:0.95rem; font-weight:700; margin-bottom:0;">📸 写真をアップロード</p>', unsafe_allow_html=True)
 st.caption("正面から撮影した、なるべく同じ角度・明るさの写真がより正確に分析できます")
 
 col1, col2 = st.columns(2)
