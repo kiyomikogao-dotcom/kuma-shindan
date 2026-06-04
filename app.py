@@ -113,6 +113,54 @@ except Exception:
     st.error("システムエラーが発生しました。しばらくしてから再度お試しください。")
     st.stop()
 
+# くまタイプ別説明表
+st.markdown("""
+<div style="margin-bottom: 1.6rem;">
+<div style="font-weight: 900; color: #7B2FAB; font-size: 1.05rem; margin-bottom: 0.8rem;">
+    📋 くまのタイプを知っておこう
+</div>
+<table style="width:100%; border-collapse: collapse; font-size: 0.85rem; line-height: 1.6;">
+  <thead>
+    <tr style="background: linear-gradient(90deg, #E8D5F5, #FFE4F3); color: #5a1a8a;">
+      <th style="padding: 0.55rem 0.5rem; border-radius: 10px 0 0 0; text-align: center; font-size: 0.8rem;">タイプ</th>
+      <th style="padding: 0.55rem 0.5rem; text-align: center; font-size: 0.8rem;">見た目</th>
+      <th style="padding: 0.55rem 0.5rem; text-align: center; font-size: 0.8rem;">主な原因</th>
+      <th style="padding: 0.55rem 0.5rem; border-radius: 0 10px 0 0; text-align: center; font-size: 0.8rem;">改善のポイント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background: #fdf8ff;">
+      <td style="padding: 0.55rem 0.5rem; text-align: center; font-weight: bold; color: #5B7FD1;">🔵 青くま</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">青紫っぽい影</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">血行不良・冷え・睡眠不足</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">温め・マッサージ</td>
+    </tr>
+    <tr style="background: #fff9f2;">
+      <td style="padding: 0.55rem 0.5rem; text-align: center; font-weight: bold; color: #B5763A;">🟤 茶くま</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">茶色いくすみ</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">色素沈着・摩擦・紫外線</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">こすらない・日焼け止め</td>
+    </tr>
+    <tr style="background: #fdf8ff;">
+      <td style="padding: 0.55rem 0.5rem; text-align: center; font-weight: bold; color: #444;">⚫ 黒くま</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">黒い影・凹み</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">たるみ・加齢・むくみ</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">リンパケア・表情筋トレ</td>
+    </tr>
+    <tr style="background: #fff9f2;">
+      <td style="padding: 0.55rem 0.5rem; text-align: center; font-weight: bold; color: #9B4DB0; border-radius: 0 0 0 10px;">✨ 混合型</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">複数の色が混在</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center;">上記が複合している</td>
+      <td style="padding: 0.55rem 0.5rem; text-align: center; border-radius: 0 0 10px 0;">タイプに合わせた複合ケア</td>
+    </tr>
+  </tbody>
+</table>
+<div style="text-align: right; color: #bbb; font-size: 0.75rem; margin-top: 0.4rem;">
+    ↓ 写真をアップして自分のタイプを確認してみよう！
+</div>
+</div>
+""", unsafe_allow_html=True)
+
 # アップロードセクション
 st.markdown("### 📸 お顔の写真をアップロード")
 st.caption("目の下がよく見える、正面からの写真が最適です")
