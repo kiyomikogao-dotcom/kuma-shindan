@@ -4,6 +4,7 @@ from PIL import Image, ImageOps
 import io
 import base64
 import os
+import re
 
 def load_illust_b64():
     path = os.path.join(os.path.dirname(__file__), "illust_kiyomi.jpg")
@@ -297,6 +298,7 @@ if before_file and after_file:
                 )
 
                 result = response.choices[0].message.content
+                result = re.sub(r'【[^】]*】', '', result).strip()
 
                 st.success("分析が完了しました！")
                 st.markdown("---")
