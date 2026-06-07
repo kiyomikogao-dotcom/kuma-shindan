@@ -41,22 +41,35 @@ st.markdown("""
     section[data-testid="stSidebar"] {display: none !important;}
     [data-testid="collapsedControl"] {display: none !important;}
 
-    .menu-card {
-        display: block;
-        text-decoration: none !important;
-        background: linear-gradient(135deg, #FFF0F7 0%, #F8EDFF 100%);
-        border: 2px solid #F0B8D8;
-        border-radius: 24px;
-        padding: 1.6rem 1.4rem;
-        margin-bottom: 1.2rem;
-        text-align: center;
-        box-shadow: 0 4px 16px rgba(224,122,155,0.12);
-        color: inherit !important;
+    /* リンクボタンをカード風に */
+    div[data-testid="stLinkButton"] {
+        margin-bottom: 1rem;
+    }
+    div[data-testid="stLinkButton"] a {
+        display: block !important;
+        background: linear-gradient(135deg, #FFF0F7 0%, #F8EDFF 100%) !important;
+        border: 2px solid #F0B8D8 !important;
+        border-radius: 24px !important;
+        padding: 1.6rem 1.4rem !important;
+        text-align: center !important;
+        color: #C0468A !important;
+        font-weight: 800 !important;
+        font-size: 1.15rem !important;
+        height: auto !important;
+        min-height: 80px !important;
+        box-shadow: 0 4px 16px rgba(224,122,155,0.12) !important;
+        letter-spacing: 0.03em;
+        line-height: 1.6 !important;
+    }
+    div[data-testid="stLinkButton"] a:hover {
+        background: linear-gradient(135deg, #FFE0F0 0%, #F0E0FF 100%) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(224,122,155,0.22) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# イラスト＋タイトル
+# イラスト
 if CHAR_B64:
     st.markdown(
         f'<div style="text-align:center; margin-top:1.4rem; margin-bottom:0.6rem;">'
@@ -66,6 +79,7 @@ if CHAR_B64:
         unsafe_allow_html=True
     )
 
+# タイトル
 st.markdown(
     '<h1 style="text-align:center; font-weight:900; color:#C0468A; '
     'font-size:clamp(1.4rem, 6vw, 2rem); margin-top:0.2rem; margin-bottom:0.2rem; line-height:1.4;">'
@@ -78,20 +92,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# カード2枚をまとめて1つのmarkdownで出力
-st.markdown(
-    '<a class="menu-card" href="https://kuma-shindan.streamlit.app/" target="_blank">'
-    '<p style="font-size:2.2rem; margin:0 0 0.3rem;">👁️</p>'
-    '<p style="font-size:1.2rem; font-weight:800; color:#C0468A; margin:0 0 0.4rem;">あなたのクマはどのタイプ？</p>'
-    '<p style="font-size:0.9rem; color:#A06080; margin:0; line-height:1.7;">目の下のクマをAIが分析！<br>タイプ別のケア方法をお伝えします</p>'
-    '</a>'
-    '<a class="menu-card" href="https://beforeafter-shindan.streamlit.app/" target="_blank">'
-    '<p style="font-size:2.2rem; margin:0 0 0.3rem;">🌸</p>'
-    '<p style="font-size:1.2rem; font-weight:800; color:#C0468A; margin:0 0 0.4rem;">お顔の変化check！</p>'
-    '<p style="font-size:0.9rem; color:#A06080; margin:0; line-height:1.7;">ケア前後の写真を2枚アップするだけ！<br>AIが変化を詳しく診断します</p>'
-    '</a>',
-    unsafe_allow_html=True
-)
+# カードボタン
+st.link_button("👁️　あなたのクマはどのタイプ？", "https://kuma-shindan.streamlit.app/", use_container_width=True)
+st.link_button("🌸　お顔の変化check！", "https://beforeafter-shindan.streamlit.app/", use_container_width=True)
 
 st.markdown(
     '<p style="text-align:center; color:#ccc; font-size:0.8rem; margin-top:2rem;">'
