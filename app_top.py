@@ -54,17 +54,18 @@ st.markdown("""
         text-align: center !important;
         color: #8C1A60 !important;
         font-weight: 800 !important;
-        font-size: 1.35rem !important;
+        font-size: 1.15rem !important;
         height: auto !important;
         min-height: 90px !important;
         box-shadow: 0 4px 16px rgba(224,122,155,0.12) !important;
         letter-spacing: 0.03em;
         line-height: 1.6 !important;
+        white-space: nowrap !important;
     }
     div[data-testid="stLinkButton"] a p,
     div[data-testid="stLinkButton"] a span,
     div[data-testid="stLinkButton"] a * {
-        font-size: 1.35rem !important;
+        font-size: 1.15rem !important;
         color: #8C1A60 !important;
         font-weight: 800 !important;
     }
