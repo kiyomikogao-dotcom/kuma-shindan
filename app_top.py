@@ -43,49 +43,20 @@ st.markdown("""
 
     .menu-card {
         display: block;
-        text-decoration: none;
+        text-decoration: none !important;
         background: linear-gradient(135deg, #FFF0F7 0%, #F8EDFF 100%);
         border: 2px solid #F0B8D8;
         border-radius: 24px;
         padding: 1.6rem 1.4rem;
         margin-bottom: 1.2rem;
         text-align: center;
-        transition: transform 0.15s, box-shadow 0.15s;
         box-shadow: 0 4px 16px rgba(224,122,155,0.12);
-    }
-
-    .menu-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 24px rgba(224,122,155,0.22);
-    }
-
-    .menu-card .icon {
-        font-size: 2.4rem;
-        margin-bottom: 0.4rem;
-    }
-
-    .menu-card .label {
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: #C0468A;
-        margin-bottom: 0.3rem;
-    }
-
-    .menu-card .desc {
-        font-size: 0.9rem;
-        color: #A06080;
-        line-height: 1.7;
-    }
-
-    @media (max-width: 480px) {
-        .menu-card { padding: 1.3rem 1rem; }
-        .menu-card .label { font-size: 1.1rem; }
-        .menu-card .desc { font-size: 0.85rem; }
+        color: inherit !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# イラスト
+# イラスト＋タイトル
 if CHAR_B64:
     st.markdown(
         f'<div style="text-align:center; margin-top:1.4rem; margin-bottom:0.6rem;">'
@@ -95,7 +66,6 @@ if CHAR_B64:
         unsafe_allow_html=True
     )
 
-# タイトル
 st.markdown(
     '<h1 style="text-align:center; font-weight:900; color:#C0468A; '
     'font-size:clamp(1.4rem, 6vw, 2rem); margin-top:0.2rem; margin-bottom:0.2rem; line-height:1.4;">'
@@ -108,22 +78,17 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# くま診断カード
+# カード2枚をまとめて1つのmarkdownで出力
 st.markdown(
     '<a class="menu-card" href="https://kuma-shindan.streamlit.app/" target="_blank">'
-    '<div class="icon">👁️</div>'
-    '<div class="label">あなたのクマはどのタイプ？</div>'
-    '<div class="desc">目の下のクマをAIが分析！<br>タイプ別のケア方法をお伝えします</div>'
-    '</a>',
-    unsafe_allow_html=True
-)
-
-# お顔の変化チェックカード
-st.markdown(
+    '<p style="font-size:2.2rem; margin:0 0 0.3rem;">👁️</p>'
+    '<p style="font-size:1.2rem; font-weight:800; color:#C0468A; margin:0 0 0.4rem;">あなたのクマはどのタイプ？</p>'
+    '<p style="font-size:0.9rem; color:#A06080; margin:0; line-height:1.7;">目の下のクマをAIが分析！<br>タイプ別のケア方法をお伝えします</p>'
+    '</a>'
     '<a class="menu-card" href="https://beforeafter-shindan.streamlit.app/" target="_blank">'
-    '<div class="icon">🌸</div>'
-    '<div class="label">お顔の変化check！</div>'
-    '<div class="desc">ケア前後の写真を2枚アップするだけ！<br>AIが変化を詳しく診断します</div>'
+    '<p style="font-size:2.2rem; margin:0 0 0.3rem;">🌸</p>'
+    '<p style="font-size:1.2rem; font-weight:800; color:#C0468A; margin:0 0 0.4rem;">お顔の変化check！</p>'
+    '<p style="font-size:0.9rem; color:#A06080; margin:0; line-height:1.7;">ケア前後の写真を2枚アップするだけ！<br>AIが変化を詳しく診断します</p>'
     '</a>',
     unsafe_allow_html=True
 )
