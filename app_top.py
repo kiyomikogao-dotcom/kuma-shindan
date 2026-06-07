@@ -97,7 +97,7 @@ st.link_button("👁️　あなたのクマはどのタイプ？", "https://kum
 st.link_button("🌸　お顔の変化check！", "https://beforeafter-shindan.streamlit.app/", use_container_width=True)
 
 st.markdown(
-    '<p style="text-align:center; color:#ccc; font-size:0.8rem; margin-top:2rem;">'
+    '<p style="text-align:center; color:#888; font-size:0.8rem; margin-top:2rem;">'
     '© たるみバスター★きよみ ｜ AIによる参考診断です</p>',
     unsafe_allow_html=True
 )
