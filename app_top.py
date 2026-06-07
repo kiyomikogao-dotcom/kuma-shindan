@@ -37,6 +37,9 @@ st.markdown("""
     [data-testid="stToolbar"] {display: none !important;}
     [data-testid="stDecoration"] {display: none !important;}
     [data-testid="stStatusWidget"] {display: none !important;}
+    [data-testid="stSidebarNav"] {display: none !important;}
+    section[data-testid="stSidebar"] {display: none !important;}
+    [data-testid="collapsedControl"] {display: none !important;}
 
     .menu-card {
         display: block;
