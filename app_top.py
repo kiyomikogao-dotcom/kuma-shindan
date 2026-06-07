@@ -81,9 +81,9 @@ if CHAR_B64:
 
 # タイトル
 st.markdown(
-    '<h1 style="text-align:center; font-weight:900; color:#C0468A; '
+    '<div style="text-align:center; font-weight:900; color:#C0468A; '
     'font-size:clamp(1.4rem, 6vw, 2rem); margin-top:0.2rem; margin-bottom:0.2rem; line-height:1.4;">'
-    'たるみバスター★きよみ<br>AIお顔診断</h1>',
+    'たるみバスター★きよみ<br>AIお顔診断</div>',
     unsafe_allow_html=True
 )
 st.markdown(
