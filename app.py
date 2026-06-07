@@ -76,7 +76,7 @@ def get_img_b64(path):
 char_b64 = get_img_b64("kiyomi_character.jpg")
 hero_img = (
     f'<img src="data:image/jpeg;base64,{char_b64}" '
-    'style="width:90px; max-width:30%; border-radius:14px; '
+    'style="width:140px; max-width:45%; border-radius:14px; '
     'display:block; margin:0 auto 0.8rem;">'
     if char_b64 else ""
 )

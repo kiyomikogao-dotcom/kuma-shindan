@@ -3,17 +3,6 @@ from groq import Groq
 from PIL import Image
 import io
 import base64
-import os
-
-def load_char_b64():
-    path = os.path.join(os.path.dirname(__file__), "kiyomi_character.jpg")
-    try:
-        with open(path, "rb") as f:
-            return base64.b64encode(f.read()).decode()
-    except Exception:
-        return None
-
-CHAR_B64 = load_char_b64()
 
 st.set_page_config(
     page_title="目のたるみ診断 | きよみの小顔ケア",
@@ -32,15 +21,6 @@ st.markdown("""
            text-align: center; margin-top: 1.5rem; }
 </style>
 """, unsafe_allow_html=True)
-
-if CHAR_B64:
-    st.markdown(
-        f'<div style="text-align:center; margin-top:1.2rem; margin-bottom:0.4rem;">'
-        f'<img src="data:image/jpeg;base64,{CHAR_B64}" '
-        f'style="width:90px; max-width:30%; border-radius:14px;">'
-        f'</div>',
-        unsafe_allow_html=True
-    )
 
 st.markdown("# ✨ 目のたるみ診断")
 st.markdown('<p class="subtitle">写真をアップロードするだけ！AIが目のたるみのタイプと改善アドバイスをお伝えします</p>',
