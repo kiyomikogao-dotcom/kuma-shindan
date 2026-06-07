@@ -238,16 +238,6 @@ if uploaded:
                     unsafe_allow_html=True
                 )
 
-                st.markdown("""
-<div class="cta-card">
-    💜 <strong>もっと詳しくケアを学びたい方へ</strong><br><br>
-    小顔トレーナー「<strong>たるみバスター★きよみ</strong>」の<br>
-    <strong>オンライン体験会</strong>で、<br>
-    あなたに合ったセルフケアをマンツーマンで<br>お伝えします✨<br><br>
-    👇 お気軽に公式LINEから<br>
-    <strong>「体験会希望」</strong>とメッセージくださいね
-</div>
-""", unsafe_allow_html=True)
 
             except Exception as e:
                 st.error(f"エラー: {e}")
