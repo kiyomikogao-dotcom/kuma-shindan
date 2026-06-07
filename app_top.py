@@ -54,7 +54,7 @@ st.markdown("""
         text-align: center !important;
         color: #C0468A !important;
         font-weight: 800 !important;
-        font-size: 1.15rem !important;
+        font-size: 1.45rem !important;
         height: auto !important;
         min-height: 80px !important;
         box-shadow: 0 4px 16px rgba(224,122,155,0.12) !important;
