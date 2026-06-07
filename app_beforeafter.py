@@ -12,6 +12,16 @@ def load_illust_b64():
 
 ILLUST_B64 = load_illust_b64()
 
+def load_char_b64():
+    path = os.path.join(os.path.dirname(__file__), "kiyomi_character.jpg")
+    try:
+        with open(path, "rb") as f:
+            return base64.b64encode(f.read()).decode()
+    except Exception:
+        return None
+
+CHAR_B64 = load_char_b64()
+
 st.set_page_config(
     page_title="ビフォーアフター変化診断 | きよみの小顔ケア",
     page_icon="🌸",
@@ -105,8 +115,17 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+if CHAR_B64:
+    st.markdown(
+        f'<div style="text-align:center; margin-top:1.2rem; margin-bottom:0.4rem;">'
+        f'<img src="data:image/jpeg;base64,{CHAR_B64}" '
+        f'style="width:140px; max-width:45%; border-radius:14px;">'
+        f'</div>',
+        unsafe_allow_html=True
+    )
+
 st.markdown(
-    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-top:1.2rem; margin-bottom:0.3rem; font-size:clamp(1.5rem, 6vw, 2.2rem);">🌸 お顔の変化check！</h2>',
+    '<h2 style="text-align:center; font-family:\'M PLUS Rounded 1c\', sans-serif; font-weight:800; color:#E07A9B; margin-top:0.4rem; margin-bottom:0.3rem; font-size:clamp(1.5rem, 6vw, 2.2rem);">🌸 お顔の変化check！</h2>',
     unsafe_allow_html=True
 )
 st.markdown(
