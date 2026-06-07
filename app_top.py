@@ -56,10 +56,17 @@ st.markdown("""
         font-weight: 800 !important;
         font-size: 1.65rem !important;
         height: auto !important;
-        min-height: 80px !important;
+        min-height: 90px !important;
         box-shadow: 0 4px 16px rgba(224,122,155,0.12) !important;
         letter-spacing: 0.03em;
         line-height: 1.6 !important;
+    }
+    div[data-testid="stLinkButton"] a p,
+    div[data-testid="stLinkButton"] a span,
+    div[data-testid="stLinkButton"] a * {
+        font-size: 1.65rem !important;
+        color: #8C1A60 !important;
+        font-weight: 800 !important;
     }
     div[data-testid="stLinkButton"] a:hover {
         background: linear-gradient(135deg, #FFE0F0 0%, #F0E0FF 100%) !important;
