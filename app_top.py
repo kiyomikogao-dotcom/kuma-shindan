@@ -52,7 +52,7 @@ st.markdown("""
         border-radius: 24px !important;
         padding: 1.6rem 1.4rem !important;
         text-align: center !important;
-        color: #C0468A !important;
+        color: #8C1A60 !important;
         font-weight: 800 !important;
         font-size: 1.65rem !important;
         height: auto !important;
